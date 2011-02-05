@@ -1,0 +1,12 @@
+img {
+  border: 0 none;
+}
+a {
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: none;
+}
+#links_table img {
+  float: left;
+}

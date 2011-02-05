@@ -1,0 +1,28 @@
+<table id="links_table">
+  <tr>
+    <td valign="bottom">
+      <%= link_to @download_link do %> 
+        <%= image_tag('small/download.png') %>
+        &nbsp;Завантажити програму
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= link_to '/contacts' do %> 
+        <%= image_tag('small/mail.png') %>
+        &nbsp;Контакти 
+      <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <%= link_to '/info' do %> 
+        <%= image_tag('small/help.png') %>
+        &nbsp;Про проект  
+      <% end %>
+    </td>
+  </tr>
+</table>
+<br/>
+<%= link_to 'адміністрування', :controller => 'products', :action => 'index' %>

@@ -1,0 +1,14 @@
+<% if @product %>
+  <div><h3>
+      <%= image_tag 'small/accept.png' %>
+      Продукт дійсний.
+  </h3></div>
+  <h5>
+  <div> <%= @product.name %></div>
+  <div> <%=raw @product.description.gsub(/\r/, '<br />') %> </div>
+</h5>
+<% else %>
+  <%= image_tag 'small/block.png' %>
+  Продукт підробний.<br/>
+  Зателефонуйте за номером ххх
+<% end %>

@@ -1,0 +1,26 @@
+<h1>Список продуктiв</h1>
+
+<table>
+  <tr align="left">
+    <th>Ім'я</th>
+    <th>Опис</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @products.each do |product| %>
+  <tr valign="top">
+    <td style="width:50px;"><%= product.name %></td>
+    <td style="width:200px;"><%= product.description %></td>
+    <td><%= link_to 'Показати', product %><br/>
+    <%= link_to 'Редагувати', edit_product_path(product) %><br/>
+    <%= link_to 'Видалити', product, :confirm => 'Are you sure?', :method => :delete %><br/>
+    <%= link_to 'Сгенерувати код', :action => :new_code, :id => product.id %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'Додати продукт', new_product_path %>

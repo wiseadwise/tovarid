@@ -1,0 +1,54 @@
+<style type="text/css">
+ table {
+  border-width: 0;
+  border-style: none;
+  border-color: #0000ff;
+  border-collapse: collapse;
+ }
+ td {
+   border-width: 0;
+   border-style: none;
+   border-color: #0000ff;
+   border-collapse: collapse;
+   padding: 0;
+   margin: 0;
+   width: <%= @cell_size %>px;
+   height: <%= @cell_size %>px;
+ }
+ td.black { background-color: #000; }
+ td.white { background-color: #fff; }
+</style>
+<div>
+  <%= form_tag(:action => :new_code, :id => params[:id]) do%>
+    <table>
+      <tr>
+        <td style="width:100px">
+    Розмiр точки
+    </td><td>
+    <%= select_tag "cell_size", raw(@cell_sizes.map {|e| "<option #{'selected' if @cell_size == e} value='#{e}'>#{e}</option>" }.join) %>
+  </td>
+</tr>
+<tr><td>
+    Розмiр коду
+    </td><td>
+    <%= select_tag "code_size", raw(@code_sizes.map {|e| "<option #{'selected' if @code_size == e} value='#{e}'>#{e}</option>" }.join) %>
+  </td>
+</tr>
+</table><br/>
+    <%= submit_tag 'Сгенерувати код'%>
+  <% end %>
+</div>
+<br/><br/>
+<table>
+ <% @qr.modules.each_index do |x| -%>
+   <tr>
+   <% @qr.modules.each_index do |y| -%>
+    <% if @qr.is_dark(x,y) -%>
+    <td class="black"/>
+    <% else -%>
+    <td class="white"/>
+    <% end -%>
+   <% end -%>
+   </tr>
+ <% end -%>
+</table>
